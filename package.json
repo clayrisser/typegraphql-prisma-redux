@@ -23,7 +23,8 @@
     "url": "https://codejam.ninja"
   },
   "files": [
-    "lib"
+    "lib",
+    "generator.js"
   ],
   "main": "lib/index.js",
   "repository": {
@@ -37,9 +38,10 @@
     "format": "prettier --write ./**/*.{json,md,scss,yaml,yml,js,jsx,ts,tsx} --ignore-path .gitignore",
     "lint": "npm run format && tsc --allowJs --noEmit && eslint --ext .ts,.tsx ./",
     "lint:fix": "npm run format && tsc --noEmit && eslint --ext .ts,.tsx --fix ./",
+    "prepare": "yarn link && cd example && yarn && yarn link typegraphql-prisma-redux",
     "prepublish": "npm run build",
     "start": "babel-node src --extensions \".ts,.tsx\"",
-    "test": "npm run lint && jest"
+    "test": "npm run lint:fix && jest"
   },
   "dependencies": {
     "@prisma/generator-helper": "0.0.29",
@@ -63,6 +65,8 @@
     "eslint": "^6.7.2",
     "eslint-config-airbnb-typescript": "^6.3.1",
     "eslint-config-jam": "^0.2.20",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
     "jest": "^24.9.0",
     "react": "^16.12.0",
     "react-ast": "^0.1.26",
@@ -72,6 +76,7 @@
     "node": ">=6.0.0"
   },
   "eslintIgnore": [
+    "example",
     "lib"
   ],
   "jest": {

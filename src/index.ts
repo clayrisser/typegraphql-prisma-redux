@@ -5,7 +5,7 @@ generatorHandler({
   onManifest: () => ({
     defaultOutput: 'node_modules/@generated/redux',
     prettyName: 'redux integration',
-    requiresGenerators: ['photon']
+    requiresGenerators: ['photon', 'typegraphql']
   }),
   onGenerate: generate
 });
