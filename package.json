@@ -1,0 +1,81 @@
+{
+  "name": "typegraphql-prisma-redux",
+  "version": "0.0.1",
+  "description": "generate redux from prisma schemas to query type-graphql",
+  "keywords": [
+    "generate",
+    "generator",
+    "prisma",
+    "redux",
+    "type-graphql",
+    "typegraphql-prisma-redux",
+    "typescript"
+  ],
+  "homepage": "https://github.com/codejamninja/typegraphql-prisma-redux",
+  "bugs": {
+    "url": "https://github.com/codejamninja/typegraphql-prisma-redux/issues",
+    "email": "jam@codejam.ninja"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Jam Risser",
+    "email": "jam@codejam.ninja",
+    "url": "https://codejam.ninja"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codejamninja/typegraphql-prisma-redux"
+  },
+  "scripts": {
+    "build": "npm run test && babel src -d lib --extensions \".ts,.tsx\" --source-maps inline && tsc -d --emitDeclarationOnly",
+    "clean": "git clean -fXd -e \\!node_modules -e \\!node_modules/**/* -e \\!yarn.lock && jest --clearCache",
+    "clean:purge": "jest --clearCache && git clean -fXd",
+    "format": "prettier --write ./**/*.{json,md,scss,yaml,yml,js,jsx,ts,tsx} --ignore-path .gitignore",
+    "lint": "npm run format && tsc --allowJs --noEmit && eslint --ext .ts,.tsx ./",
+    "lint:fix": "npm run format && tsc --noEmit && eslint --ext .ts,.tsx --fix ./",
+    "prepublish": "npm run build",
+    "start": "babel-node src --extensions \".ts,.tsx\"",
+    "test": "npm run lint && jest"
+  },
+  "dependencies": {
+    "@prisma/generator-helper": "0.0.29",
+    "@prisma/photon": "^0.2.177",
+    "@prisma/sdk": "^0.0.78",
+    "core-js": "^3.4.7",
+    "fs-extra": "^8.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
+    "@types/debug": "^4.1.5",
+    "@types/fs-extra": "^8.0.1",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.14",
+    "@typescript-eslint/eslint-plugin": "^2.10.0",
+    "@typescript-eslint/parser": "^2.10.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-typescript": "^6.3.1",
+    "eslint-config-jam": "^0.2.20",
+    "jest": "^24.9.0",
+    "react": "^16.12.0",
+    "react-ast": "^0.1.26",
+    "typescript": "^3.7.3"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "eslintIgnore": [
+    "lib"
+  ],
+  "jest": {
+    "testRegex": "tests(/|/.*/)[^_/]*[jt]sx?$",
+    "verbose": true
+  }
+}
